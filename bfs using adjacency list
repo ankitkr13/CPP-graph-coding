@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void BFS(int start , vector<int> * adj , vector<int> & visited) 
+{ 
+	queue<int> queue; 
+queue.push(start);
+
+	while(!queue.empty()) 
+	{ 
+	
+		s = queue.front(); 
+		cout << s << " "; 
+		queue.pop(); 
+     for (auto & it : adj[start]) 
+		{ 
+			if (!visited[i]) 
+			{ 
+				visited[i] = true; 
+				queue.push(i); 
+			} 
+		} 
+	} 
+}
+int main()
+{
+    int v , e;
+    cin>>v>>e;
+    vector<int> adj[v];
+    for(int i = 0;i<e;i++)
+    {
+        int f,s;
+        cin>>f>>s;
+        adj[f].push_back(s);
+        adj[s].push_back(f);
+    }
+    vector<bool> visited(v , false);
+    BFS( 0 , visited , adj);
+     return 0;
+}
+
+
+
