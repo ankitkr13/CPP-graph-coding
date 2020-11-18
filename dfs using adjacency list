@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void DFS(int start , vector<bool>&visited ,  vector<int> *adj) 
+{ if(visited[start])
+return;
+     
+	visited[start] = true; 
+	cout << start << " "; 
+	for (auto & i : adj[start]) 
+		if (!visited[i]) 
+			DFS(i, visited , adj);
+			
+			return;
+}  
+
+int main()
+{
+    int v , e;
+    cin>>v>>e;
+    vector<int> adj[v];
+    for(int i = 0;i<e;i++)
+    {
+        int f,s;
+        cin>>f>>s;
+        adj[f].push_back(s);
+        adj[s].push_back(f);
+    }
+    vector<bool> visited(v , false);
+    DFS( 0 , visited , adj);
+    
+    
+    return 0;
+}
+
